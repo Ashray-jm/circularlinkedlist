@@ -29,6 +29,14 @@ class CircularDoublyLinkedList {
     }
   }
 
+  static fromArray(elements) {
+    let list = new CircularDoublyLinkedList();
+    for (let ele of elements) {
+      list.add(ele);
+    }
+    return list;
+  }
+
   insertBefore(data, index) {
     const newNode = new CircularDoublyLinkedListNode(data);
 
@@ -229,11 +237,13 @@ class CircularDoublyLinkedList {
 
 exports.CircularDoublyLinkedList = CircularDoublyLinkedList;
 
-let val1 = new CircularDoublyLinkedList();
+let val1 = CircularDoublyLinkedList.fromArray([10, 20, 30]);
+
 val1.add(1);
 val1.add(20);
 val1.add(10);
 val1.add(10);
 
 console.log(val1.size);
+console.log(val1.toString());
 console.log(val1.uniqueValues());
